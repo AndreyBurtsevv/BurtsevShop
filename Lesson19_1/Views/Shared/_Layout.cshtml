@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <ul>
+        <li><a href="~/Home/Index">Home</a></li>
+        <li><a href="~/Shop/Index">Shop</a></li>
+        <li><a href="~/BrandWeb/Index">Brends</a></li>
+        <li><a href="~/ModelWeb/Index">Models</a></li>
+    </ul>
+    <div>
+        @RenderBody()
+    </div>
+    <p />
+    <p />
+    <footer>
+        <small>
+            @RenderSection("Footer", false)
+            <br />
+            Designed by Andrei Burtsev in 2020
+            <br />
+            All rights reserved. © 2020
+        </small>
+    </footer>
+</body>
+</html>

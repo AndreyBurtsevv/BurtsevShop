@@ -1,0 +1,40 @@
+﻿@model IList<Lesson19_1.Models.Brand.BrandResponse>
+@section Footer
+{
+    Brands Page
+}
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brands</title>
+    <style>
+        .text {text-align: center;}
+    </style>
+</head>
+
+<body>
+        <h1 class="text">Brands</h1>
+        <p>On this page you can add, delete and edit brands.</p>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td><input type="button" value="Add Brand" onclick="location.href='AddBrand'" /></td>
+            </tr>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                    <td>@b.Description</td>
+                    <td>
+                        <input type="button" value="Edit" onclick="location.href='EditBrand/@b.Id'" />
+                        <input type="button" value="Delete" onclick="location.href='DeleteBrand/@b.Id'" />
+                    </td>
+                </tr>
+            }
+        </table>
+</body>
+</html>

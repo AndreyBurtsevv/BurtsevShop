@@ -1,0 +1,43 @@
+﻿@model ModelResponse
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add product to basket</title>
+</head>
+<body>
+    <h1>Add product to basket</h1>
+    <p>
+        <h3> Please fill in the "Description" field: describe the color, equipment and quantity</h3>
+    </p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>ID Product</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Brand</td>
+                <td>@Model.BrandData.Name</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" size="40" min="10" name="Decriprion" placeholder="Введите описание заказа: ко-во, цвет" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add to basket" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

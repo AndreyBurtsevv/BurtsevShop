@@ -1,0 +1,35 @@
+﻿@model ModelResponse
+@inject IBrandService BrandService
+
+@{ 
+    IList<BrandResponse> brands = await BrandService.GetBrandsAsync(); 
+}
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Model</title>
+</head>
+<body>
+    <h1>Edit</h1>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name" value="@Model.Name" /></td>
+                <td>@Html.DropDownList("BrandDataId", new SelectList(brands, "Id", "Name"), Model.BrandData.Id)</td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

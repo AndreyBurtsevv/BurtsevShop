@@ -1,0 +1,42 @@
+﻿@model IList<BasketResponse>
+
+@section Footer
+{
+    Basket Page
+}
+
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basket</title>
+     <style>
+        .text {text-align: center;}
+    </style>
+</head>
+
+<body>
+    <h1 class="text">Basket</h1>
+    <p>
+        Items ready for purchase. If you want to delete the order click "Delete"
+    </p>
+    <table>
+        <tr>
+            <td>Model</td>
+            <td>Brand</td>
+            <td>Decriprion</td>
+        </tr>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.ModelData.Name</td>
+                <td>@m.ModelData.BrandData.Name</td>
+                <td>@m.Description</td>
+                <td><input type="button" value="Delete" onclick="location.href='DeleteFromBasket/@m.Id'" /></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

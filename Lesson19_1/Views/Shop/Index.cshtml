@@ -1,0 +1,53 @@
+﻿@model IList<ModelResponse>
+
+@{
+    Layout = "_Layout";
+}
+@section Footer
+{
+    Shop Page
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop</title>
+    <style>
+        .text {
+            text-align: center;
+        }
+        /*body {
+            background-image: url(https://i2.rozetka.ua/sellers/1539/1539937.jpg); 
+            background-position: center;  
+            background-repeat: no-repeat; 
+        }*/
+    </style>
+</head>
+
+<body>
+    <h1 class="text">Shop</h1>
+    <p>
+        You can read the product description by clicking on "Read about product"<br />
+        You can immediately add the product to the basket by clicking "By product"
+    </p>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Brand</td>
+        </tr>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Name</td>
+                <td>@m.BrandData.Name</td>
+
+                <td><a asp-controller="Shop" asp-action="AboutProduct" asp-route-id="@m.Id">Read about product</a></td>
+                <td><a asp-controller="Shop" asp-action="AddToBasket" asp-route-id="@m.Id">Add to Basket</a></td>
+            </tr>
+        }
+    </table>
+    <p />
+    <p />
+    <input type="button" value="Go to basket" onclick="location.href='Basket'" />
+</body>
+</html>

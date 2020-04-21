@@ -1,0 +1,31 @@
+﻿@model BrandResponse
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Brand</title>
+</head>
+<body>
+    <h1>Edit</h1>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name" value="@Model.Name" /></td>
+                <td>Description</td>
+                <td><input type="text" name="Description" value="@Model.Description" /></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

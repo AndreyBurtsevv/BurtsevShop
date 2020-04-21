@@ -1,0 +1,44 @@
+﻿@model IList<ModelResponse>
+
+@{
+    Layout = "_Layout";
+}
+
+@section Footer
+{
+    Models Page
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Models</title>
+    <style>
+        .text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text">Models</h1>
+    <p>On this page you can add, delete and edit modelss.</p>
+    <table>
+        <tr>
+            <td>Model</td>
+            <td>Brand</td>
+            <td><input type="button" value="Add Model" onclick="location.href='AddModel'" /></td>
+        </tr>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Name</td>
+                <td>@m.BrandData.Name</td>
+                <td>
+                    <input type="button" value="Edit" onclick="location.href='ModelEdit/@m.Id'" />
+                    <input type="button" value="Delete" onclick="location.href='ModelDelete/@m.Id'" />
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
