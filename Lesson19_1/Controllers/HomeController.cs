@@ -51,5 +51,10 @@ namespace Lesson19_1.Controllers
 
             return Redirect("~/Home");
         }
+
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Lesson19_1.DataModels;
+using Lesson19_1.Hubs;
 using Lesson19_1.Loger;
 using Lesson19_1.Mappers;
 using Lesson19_1.Services;
@@ -36,6 +37,8 @@ namespace Lesson19_1
             services.AddDbContext<MyDbContext>(options => options.UseMySql(connectionString));
 
             services.AddMvc();
+
+            services.AddSignalR(); 
             
             services.AddAutoMapper(typeof(MappingEntity));
 
@@ -93,8 +96,8 @@ namespace Lesson19_1
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chat");
             });
-
         }
     }
 }

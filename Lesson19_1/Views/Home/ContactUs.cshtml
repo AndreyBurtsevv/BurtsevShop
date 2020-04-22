@@ -1,0 +1,39 @@
+﻿@page
+@model Lesson19_1.Views.Home.ContactUsModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat</title>   
+</head>
+
+<body>
+    <div id="inputForm">
+        <input type="text" id="user" />
+        <input type="text" id="message" />
+        <input type="button" id="sendBtn" value="Отправить" />
+    </div>
+    <div id="chatroom"></div>
+
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        const hubConnection = new signalR.HubConnectionBuilder().withUrl("/chat").build(); // Подключение к конекту
+        hubConnection.on("ReciveMeddege", function (user, message) { // on - подписались на метод "Send"; function (data) - получаем даные
+            let elem = document.createElement("p");
+            let data = user + ': ' + message;
+            elem.appendChild(document.createTextNode(data));
+            let firstElem = document.getElementById("chatroom").firstChild;
+            document.getElementById("chatroom").insertBefore(elem, firstElem);
+        });
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+            let user = document.getElementById("user").value;
+            let message = document.getElementById("message").value;
+            hubConnection.invoke("Send", user, message); // отправка сообщение из поля message
+        });
+        hubConnection.start();
+    </script>
+</body>
+</html>
