@@ -19,11 +19,13 @@ namespace Lesson19_1.Controllers
 
         private readonly IBasketService _basketService;
 
-        public ShopController(IModelService modelService, IBasketService basketService)
+        private readonly IOrderService _orderService;
+        
+        public ShopController (IModelService modelService, IBasketService basketService, IOrderService orderService)
         {
             _modelService = modelService;
             _basketService = basketService;
- 
+            _orderService = orderService;
         }
 
         public async Task<IActionResult> Index()
@@ -61,9 +63,27 @@ namespace Lesson19_1.Controllers
 
         public async Task<IActionResult> DeleteFromBasket(int id)
         {
-            await _basketService.DeleteModelAsync(id);
+            await _basketService.DeleteProductAsync(id);
             return Redirect("~/Shop/Basket");
         }
 
+        public IActionResult IssueOrder()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> IssueOrder(string description)
+        {
+            await _orderService.AddOrdersAsymc(description, DateTime.Now);
+            return Redirect("~/Shop/Index");
+        }
+
+        public async Task<IActionResult> PurchaseHistory()
+        {
+            var data = await _orderService.GetOrdersAsync();
+            return View(data);
+        }
     }
 }
+// purchase history

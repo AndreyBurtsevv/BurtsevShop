@@ -22,9 +22,12 @@ namespace Lesson19_1.DataModels
             modelBuilder.Entity<BrandData>().HasData(
                 new BrandData {Id = 3, Name = "Cenon", Description = "For photos" });
 
+            modelBuilder.Entity<OrderData>();
+
             modelBuilder.Entity<LogData>();
 
             modelBuilder.Entity<BasketData>();
+
         }
        
         public DbSet<BrandData> BrandData { get; set; }
@@ -34,5 +37,7 @@ namespace Lesson19_1.DataModels
         public DbSet<LogData> LogData { get; set; }
 
         public DbSet<BasketData> BasketData { get; set; }
+
+        public DbSet<OrderData> OrderData { get; set; }
     }
 }

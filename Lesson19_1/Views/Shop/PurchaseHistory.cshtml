@@ -1,0 +1,43 @@
+﻿@model IList<OrderData>
+
+@section Footer
+{
+    Purchase History Page
+}
+
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase History</title>
+    <style>
+        .text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text">Purchase History</h1>
+    <p>
+        History of all your orders
+    </p>
+    <table>
+        <tr>
+            <td>Model</td>
+            <td>Brand</td>
+            <td>Date</td>
+        </tr>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.ModelName</td>
+                <td>@m.BrandName</td>
+                <td>@m.Date</td>
+            </tr>
+        }
+    </table>  
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using Lesson19_1.DataModels;
+using Lesson19_1.Models.Basket;
 using Lesson19_1.Models.Brand;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,11 @@ namespace Lesson19_1.Helpers
         {
             return from.Select(b=> BrandDataToBrandResponse(b)).ToList();
         }
+
+        //public static IList<OrderData> BasketResponseToOrderDataList(IList<BasketResponse> from)
+        //{
+             
+        //    return from.Select(b => BrandDataToBrandResponse(b)).ToList();
+        //}
     }
 }

@@ -12,6 +12,6 @@ namespace Lesson19_1.Services
 
         Task AddToBasketAsync(CreateBasket model);
 
-        Task DeleteModelAsync(int id);
+        Task DeleteProductAsync(int id);
     }
 }

@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Order</title>
+</head>
+<body>
+    <h1>Issue Order</h1>
+    <p>
+        <h3>Please fill in the "Description" field: ---</h3>
+    </p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" size="40" min="10" name="description" placeholder="Введите описание ФИО и номер телефона" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Make Order" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -42,6 +42,8 @@ namespace Lesson19_1
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IModelService, ModelService>();
             services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IOrderService, OrderService>();
+            
             //add swagger
             services.AddSwaggerGen(c =>
             {
