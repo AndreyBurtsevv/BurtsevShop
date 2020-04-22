@@ -29,6 +29,13 @@ namespace Lesson19_1.Services
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task DeleteAllAsync()
+        {
+            var data = await _dbContext.BasketData.Include(b => b.ModelData).Include(b => b.ModelData.BrandData).ToListAsync();
+            _dbContext.BasketData.RemoveRange(data);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task DeleteProductAsync(int id)
         {
             _dbContext.BasketData.Remove(new BasketData { Id = id });

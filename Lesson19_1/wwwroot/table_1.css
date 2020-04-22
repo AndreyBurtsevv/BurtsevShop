@@ -1,0 +1,30 @@
+﻿body {
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    width: 25%;
+    -x-border: 2px solid #ccc;
+    height: 50px;
+}
+
+th {
+    background-color: #4f81bd;
+    color: #fff;
+}
+
+tr:nth-of-type(even) {
+    background-color: #d0d8e8;
+}
+
+tr:nth-of-type(odd) {
+    background-color: #e9edf4;
+}
+
+.dddd {
+    width: 100%;
+}

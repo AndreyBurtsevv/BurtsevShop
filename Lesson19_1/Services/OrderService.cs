@@ -33,7 +33,10 @@ namespace Lesson19_1.Services
             {
                 var data = new OrderData { BrandName = item.ModelData.BrandData.Name, ModelName = item.ModelData.Name, Description = desc, Date = dateTime};
                 await _dbContext.OrderData.AddAsync(data);
-            }            
+            }
+
+            await _basketService.DeleteAllAsync();
+
             await _dbContext.SaveChangesAsync();
         }
 

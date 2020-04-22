@@ -21,5 +21,9 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\table_1.css" />
+  </ItemGroup>
+
 
 </Project>

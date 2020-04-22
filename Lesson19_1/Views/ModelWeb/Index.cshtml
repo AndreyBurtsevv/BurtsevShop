@@ -12,6 +12,9 @@
 <html>
 <head>
     <title>Models</title>
+
+    <link type="text/css" rel="stylesheet" href="~/table_1.css" />
+
     <style>
         .text {
             text-align: center;
@@ -22,11 +25,12 @@
 <body>
     <h1 class="text">Models</h1>
     <p>On this page you can add, delete and edit modelss.</p>
+    <p><input type="button" value="Add Model" onclick="location.href='AddModel'" /></p>
     <table>
         <tr>
-            <td>Model</td>
-            <td>Brand</td>
-            <td><input type="button" value="Add Model" onclick="location.href='AddModel'" /></td>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Work with models</th>
         </tr>
         @foreach (var m in Model)
         {

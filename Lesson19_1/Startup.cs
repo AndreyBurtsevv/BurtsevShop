@@ -36,7 +36,7 @@ namespace Lesson19_1
             services.AddDbContext<MyDbContext>(options => options.UseMySql(connectionString));
 
             services.AddMvc();
-
+            
             services.AddAutoMapper(typeof(MappingEntity));
 
             services.AddScoped<IBrandService, BrandService>();
@@ -55,6 +55,8 @@ namespace Lesson19_1
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddProvider(new DbLogerProvider(app));
+
+            app.UseStaticFiles();
 
             string swaggerName = null;
             if (env.IsDevelopment())

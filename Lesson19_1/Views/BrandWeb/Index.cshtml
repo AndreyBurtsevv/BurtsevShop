@@ -10,31 +10,37 @@
 <html>
 <head>
     <title>Brands</title>
+    <link type="text/css" rel="stylesheet" href="~/table_1.css" />
     <style>
-        .text {text-align: center;}
+
+        .text {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-        <h1 class="text">Brands</h1>
-        <p>On this page you can add, delete and edit brands.</p>
-        <table>
+    <h1 class="text">Brands</h1>
+    <p>On this page you can add, delete and edit brands.</p>
+    <p><input type="button" value="Add Brand" onclick="location.href='AddBrand'" /></p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Work with brands</th>
+        </tr>
+        @foreach (var b in Model)
+        {
             <tr>
-                <td>Name</td>
-                <td>Description</td>
-                <td><input type="button" value="Add Brand" onclick="location.href='AddBrand'" /></td>
+                <td>@b.Name</td>
+                <td>@b.Description</td>
+                <td>
+                    <input type="button" value="Edit" onclick="location.href='EditBrand/@b.Id'" />
+
+                    <input type="button" value="Delete" onclick="location.href='DeleteBrand/@b.Id'" />
+                </td>
             </tr>
-            @foreach (var b in Model)
-            {
-                <tr>
-                    <td>@b.Name</td>
-                    <td>@b.Description</td>
-                    <td>
-                        <input type="button" value="Edit" onclick="location.href='EditBrand/@b.Id'" />
-                        <input type="button" value="Delete" onclick="location.href='DeleteBrand/@b.Id'" />
-                    </td>
-                </tr>
-            }
-        </table>
+        }
+    </table>
 </body>
 </html>

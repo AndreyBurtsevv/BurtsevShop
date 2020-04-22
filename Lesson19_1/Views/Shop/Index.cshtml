@@ -12,16 +12,15 @@
 <html>
 <head>
     <title>Shop</title>
+
+    <link type="text/css" rel="stylesheet" href="~/table_1.css" />
+ 
     <style>
         .text {
             text-align: center;
-        }
-        /*body {
-            background-image: url(https://i2.rozetka.ua/sellers/1539/1539937.jpg); 
-            background-position: center;  
-            background-repeat: no-repeat; 
-        }*/
+        }      
     </style>
+
 </head>
 
 <body>
@@ -32,8 +31,10 @@
     </p>
     <table>
         <tr>
-            <td>Name</td>
-            <td>Brand</td>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>About product</th>
+            <th>To Basket</th>
         </tr>
         @foreach (var m in Model)
         {
@@ -41,8 +42,8 @@
                 <td>@m.Name</td>
                 <td>@m.BrandData.Name</td>
 
-                <td><a asp-controller="Shop" asp-action="AboutProduct" asp-route-id="@m.Id">Read about product</a></td>
-                <td><a asp-controller="Shop" asp-action="AddToBasket" asp-route-id="@m.Id">Add to Basket</a></td>
+                <td><a asp-controller="Shop" asp-action="AboutProduct" asp-route-id="@m.Id">Read</a></td>
+                <td><a asp-controller="Shop" asp-action="AddToBasket" asp-route-id="@m.Id">Add</a></td>
             </tr>
         }
     </table>
