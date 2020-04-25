@@ -13,7 +13,7 @@ namespace Lesson19_1.DataModels
 
         public string Description { get; set; }
  
-        public int? ModelDataId { get; set; }
+        public int ModelDataId { get; set; }
 
         public ModelData ModelData { get; set; }
     }

@@ -13,7 +13,7 @@ namespace Lesson19_1.DataModels
 
         public string Name { get; set; }
 
-        public int? BrandDataId { get; set; }
+        public int BrandDataId { get; set; }
 
         public BrandData BrandData { get; set; }
     }

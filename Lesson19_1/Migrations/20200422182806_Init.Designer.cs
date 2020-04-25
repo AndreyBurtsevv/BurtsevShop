@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lesson19_1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20200421191259_OrderData")]
-    partial class OrderData
+    [Migration("20200422182806_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace Lesson19_1.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int?>("ModelDataId")
+                    b.Property<int>("ModelDataId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -86,7 +86,7 @@ namespace Lesson19_1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("BrandDataId")
+                    b.Property<int>("BrandDataId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -134,14 +134,18 @@ namespace Lesson19_1.Migrations
                 {
                     b.HasOne("Lesson19_1.DataModels.ModelData", "ModelData")
                         .WithMany()
-                        .HasForeignKey("ModelDataId");
+                        .HasForeignKey("ModelDataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Lesson19_1.DataModels.ModelData", b =>
                 {
                     b.HasOne("Lesson19_1.DataModels.BrandData", "BrandData")
                         .WithMany()
-                        .HasForeignKey("BrandDataId");
+                        .HasForeignKey("BrandDataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
