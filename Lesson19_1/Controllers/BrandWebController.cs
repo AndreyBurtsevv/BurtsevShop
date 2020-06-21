@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lesson19_1.Models.Brand;
 using Lesson19_1.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lesson19_1.Controllers
 {
+    [Authorize]
     public class BrandWebController : Controller
     {
         private readonly IBrandService _brandService;

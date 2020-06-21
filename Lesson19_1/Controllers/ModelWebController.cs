@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lesson19_1.Models.Model;
 using Lesson19_1.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Lesson19_1.Controllers
 {
+    [Authorize]
     public class ModelWebController : Controller
     {
         private readonly IModelService _modelService;

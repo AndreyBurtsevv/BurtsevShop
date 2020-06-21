@@ -1,0 +1,19 @@
+﻿footer {
+    font-family: 'Montserrat', sans-serif;
+    opacity: .3;
+}
+
+body {
+    background-color: #e9e9e9;
+}
+
+h1 {
+    text-align: center;
+}
+
+.topright {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 18px;
+}

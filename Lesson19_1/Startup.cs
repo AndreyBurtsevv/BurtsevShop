@@ -8,9 +8,11 @@ using Lesson19_1.Hubs;
 using Lesson19_1.Loger;
 using Lesson19_1.Mappers;
 using Lesson19_1.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,19 +36,31 @@ namespace Lesson19_1
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<MyDbContext>(options => options.UseMySql(connectionString));
+
+            services.AddDbContext<IdentityDbContext>(options => options.UseMySql(connectionString));
+
+            services.AddIdentity<UserData, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>();
 
             services.AddMvc();
 
-            services.AddSignalR(); 
-            
+            services.AddSignalR();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(opts =>
+            {
+                opts.LoginPath = "/AuthWeb/Login";
+                opts.ExpireTimeSpan = TimeSpan.FromHours(4);
+            });
+
             services.AddAutoMapper(typeof(MappingEntity));
 
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IModelService, ModelService>();
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IOrderService, OrderService>();
-            
+
             //add swagger
             services.AddSwaggerGen(c =>
             {
@@ -90,6 +104,8 @@ namespace Lesson19_1
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

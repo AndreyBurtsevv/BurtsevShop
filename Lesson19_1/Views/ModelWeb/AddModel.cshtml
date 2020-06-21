@@ -10,14 +10,15 @@
 <html>
 <head>
     <title>Add Model</title>
+    <script src="~/js/validatorModel.js"></script>
 </head>
 <body>
     <h1>Add</h1>
-    <form method="post">
+    <form method="post" onsubmit="return checkForm(this)">
         <table>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="Name" /></td>
+                <td><input type="text" name="Name" id="Name" /></td>
                 <td>@Html.DropDownList("BrandDataId", new SelectList(brands, "Id", "Name"), "Select Brand")</td>
             </tr>
             <tr>
@@ -26,6 +27,7 @@
                 </td>
             </tr>
         </table>
+        <p id='err_fio' class='error'></p>
     </form>
 </body>
 </html>

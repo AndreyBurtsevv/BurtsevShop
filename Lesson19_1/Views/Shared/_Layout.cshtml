@@ -3,29 +3,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <style type="text/css">
-        footer {
-            font-family: 'Montserrat', sans-serif;
-            opacity: .3;
-        }
-        body {
-            background-color: #e9e9e9;
-        }
-        h1 {
-            text-align: center;
-        }
-    </style>
-
+    <link href="~/css/mainLayout.css" rel="stylesheet" />
 </head>
+
 <body>
     <ul>
         <li><a href="~/Home/Index">Home</a></li>
         <li><a href="~/Shop/Index">Shop</a></li>
+        <li><a href="~/Shop/Basket">Basket</a></li>
         <li><a href="~/Shop/PurchaseHistory">History</a></li>
-        <li><a href="~/Home/ContactUs">Contact Us</a></li>
+    </ul>
+
+    <ul>
         <li><a href="~/BrandWeb/Index">Brends</a></li>
         <li><a href="~/ModelWeb/Index">Models</a></li>
     </ul>
+
+    <ul class="topright">
+        <li><a href="~/AuthWeb/Registration">Registration</a></li>
+        <li><a href="~/AuthWeb/Login">Loginization</a></li>
+        <li><a href="~/AuthWeb/Logout">Logout</a></li>
+        <li><a href="~/Home/ContactUs">Contact Us</a></li>
+    </ul>
+
+    <hr noshade">
     <div>
         @RenderBody()
     </div>

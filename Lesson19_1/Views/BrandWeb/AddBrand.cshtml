@@ -6,16 +6,19 @@
 <html>
 <head>
     <title>Добавить Бренды</title>
+    <script src="~/js/validator.js"></script>
 </head>
 <body>
     <h1>Добавление</h1>
-    <form method="post">
+    <form method="post" onsubmit="return checkForm(this)">
         <table>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="Name" /></td>
+                <td><input type="text" name="Name" id="Name" /></td>
+            </tr>
+            <tr>
                 <td>Description</td>
-                <td><input type="text" name="Description" /></td>
+                <td><textarea cols="30" placeholder="Description" name="Description" id="Description"></textarea></td>
             </tr>
             <tr>
                 <td>
@@ -23,6 +26,7 @@
                 </td>
             </tr>
         </table>
+        <p id='err_fio' class='error'></p>
     </form>
 </body>
 </html>
