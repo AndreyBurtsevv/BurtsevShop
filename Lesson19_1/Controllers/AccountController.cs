@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Lesson19_1.Controllers
 {
-    public class AuthWebController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<UserData> _userManager;
         private readonly SignInManager<UserData> _signInManager;
 
-        public AuthWebController(UserManager<UserData> userManager, SignInManager<UserData> signInManager)
+        public AccountController(UserManager<UserData> userManager, SignInManager<UserData> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -61,7 +61,7 @@ namespace Lesson19_1.Controllers
             if (ModelState.IsValid)
             {
                 UserData user = new UserData { Email = login.Email, UserName = login.Email };
-                var response = await _signInManager.PasswordSignInAsync(user.Email, login.Password, false, false);
+                var response = await _signInManager.PasswordSignInAsync(user.Email, login.Password, true, false);
                 if (response.Succeeded)
                 {
                     return Redirect("~/Home/Index");

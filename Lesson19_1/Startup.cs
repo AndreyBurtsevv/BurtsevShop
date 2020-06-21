@@ -50,7 +50,7 @@ namespace Lesson19_1
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(opts =>
             {
-                opts.LoginPath = "/AuthWeb/Login";
+                opts.LoginPath = "/Account/Login";
                 opts.ExpireTimeSpan = TimeSpan.FromHours(4);
             });
 
@@ -103,9 +103,16 @@ namespace Lesson19_1
 
             app.UseRouting();
 
+            app.UseCookiePolicy();
+
+            app.UseAuthentication(); 
+
             app.UseAuthorization();
 
-            app.UseAuthentication();
+            //app.UseAuthorization();
+
+            //app.UseAuthentication();
+ 
 
             app.UseEndpoints(endpoints =>
             {

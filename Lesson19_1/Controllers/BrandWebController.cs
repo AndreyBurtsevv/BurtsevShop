@@ -34,8 +34,13 @@ namespace Lesson19_1.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var brands = await _brandService.GetBrandsAsync();
-            return View(brands);
+            //if (User.Identity.IsAuthenticated)
+            //{
+                var brands = await _brandService.GetBrandsAsync();
+                return View(brands);
+            //}
+            //else
+            //    return Redirect("~HomeController/Index");
         }
 
         public async Task<IActionResult> EditBrand(int id)

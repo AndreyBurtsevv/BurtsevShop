@@ -11,6 +11,10 @@ namespace Lesson19_1.DataModels
         [Key]
         public int Id { get; set; }
 
+        public string UserId { get; set; }
+
+        public UserData UserData { get; set; }
+
         public DateTime Date { get; set; }
 
         public string ModelName { get; set; }
