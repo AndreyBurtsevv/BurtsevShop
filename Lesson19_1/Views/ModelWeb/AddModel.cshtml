@@ -19,7 +19,7 @@
             <tr>
                 <td>Name</td>
                 <td><input type="text" name="Name" id="Name" /></td>
-                <td>@Html.DropDownList("BrandDataId", new SelectList(brands, "Id", "Name"), "Select Brand")</td>
+                @Html.DropDownList("BrandDataId", new SelectList(brands, "Id", "Name"), "Select Brand")
             </tr>
             <tr>
                 <td>

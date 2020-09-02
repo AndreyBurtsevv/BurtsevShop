@@ -9,6 +9,8 @@ namespace Lesson19_1.Models.Basket
     {
         public int Id { get; set; }
 
+        public string UserId { get; set; }
+
         public string Decriprion { get; set; }
 
         public int ModelDataId { get; set; }

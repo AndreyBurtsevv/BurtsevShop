@@ -51,7 +51,6 @@ namespace Lesson19_1.Services
             _dbContext.BrandData.First(x => x.Id == brand.Id).Description = brand.Description;
 
             await _dbContext.SaveChangesAsync();
-
         }
 
         public async Task DeleteBrandAsync(int id)

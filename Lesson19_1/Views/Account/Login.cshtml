@@ -1,6 +1,12 @@
 ﻿@model Lesson19_1.ViewModel.LoginViewModel
 @{
 }
+    <style>
+        .b1 {
+            background: blue; /* Синий цвет фона */
+            color: white; /* Белые буквы */
+        }
+    </style>
 <form method="post" asp-controller="Account" asp-action="Login">
     <div asp-validation-summary="ModelOnly"> </div>
     <div>
@@ -13,6 +19,6 @@
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>    <div>
-        <input type="submit" value="Login" />
+        <input class="b1" type="submit" value="Login" />
     </div>
 </form>

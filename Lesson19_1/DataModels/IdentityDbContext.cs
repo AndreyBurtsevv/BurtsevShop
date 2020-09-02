@@ -15,3 +15,5 @@ namespace Lesson19_1.DataModels
         }
     }
 }
+
+//dotnet ef migrations add AddUserId --project "C:\Users\Andrew\3D Objects\IT School\Show-Proj\Lesson19_1\Lesson19_1" --context MyDbContext

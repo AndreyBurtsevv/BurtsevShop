@@ -23,7 +23,7 @@ namespace Lesson19_1.Services
 
         public async Task AddToBasketAsync(CreateBasket model)
         {
-            var data = new BasketData { ModelDataId = model.ModelDataId, Description = model.Decriprion };
+            var data = new BasketData {UserId = model.UserId, ModelDataId = model.ModelDataId, Description = model.Decriprion };
 
             await _dbContext.BasketData.AddAsync(data);
             await _dbContext.SaveChangesAsync();
@@ -42,11 +42,11 @@ namespace Lesson19_1.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IList<BasketResponse>> GetBasketAsync()
+        public async Task<IList<BasketResponse>> GetBasketAsync(string userId)
         {
             IList<BasketResponse> result = null;
 
-            var data = await _dbContext.BasketData.Include(b => b.ModelData).Include(b=>b.ModelData.BrandData).ToListAsync();
+            var data = await _dbContext.BasketData.Where(x => x.UserId == userId).Include(b => b.ModelData).Include(b=>b.ModelData.BrandData).ToListAsync();
 
             result = _mapper.Map<IList<BasketResponse>>(data);
 

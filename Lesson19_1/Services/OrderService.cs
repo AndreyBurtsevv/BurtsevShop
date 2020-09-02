@@ -25,13 +25,13 @@ namespace Lesson19_1.Services
             _basketService = basketService;
         }
 
-        public async Task AddOrdersAsymc(string desc, DateTime dateTime)
+        public async Task AddOrdersAsymc(string desc, DateTime dateTime, string userId)
         {
-            var orders = await _basketService.GetBasketAsync();
+            var orders = await _basketService.GetBasketAsync(userId);
 
             foreach (var item in orders)
             {
-                var data = new OrderData { BrandName = item.ModelData.BrandData.Name, ModelName = item.ModelData.Name, Description = desc, Date = dateTime};
+                var data = new OrderData { UserId = userId, BrandName = item.ModelData.BrandData.Name, ModelName = item.ModelData.Name, Description = desc, Date = dateTime};
                 await _dbContext.OrderData.AddAsync(data);
             }
 
@@ -40,11 +40,11 @@ namespace Lesson19_1.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IList<OrderData>> GetOrdersAsync()
+        public async Task<IList<OrderData>> GetOrdersAsync(string userId)
         {
            // IList<OrderResponse> result = null;
 
-            var data = await _dbContext.OrderData.ToListAsync();
+            var data = await _dbContext.OrderData.Where(x => x.UserId == userId).ToListAsync();
 
             // result = _mapper.Map<IList<OrderResponse>>(data);
 

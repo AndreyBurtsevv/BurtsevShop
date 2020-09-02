@@ -10,8 +10,8 @@ namespace Lesson19_1.Services
 {
     public interface IOrderService
     {
-        Task<IList<OrderData>> GetOrdersAsync();
+        Task<IList<OrderData>> GetOrdersAsync(string userId);
 
-        Task AddOrdersAsymc(string desc, DateTime dateTime);
+        Task AddOrdersAsymc(string desc, DateTime dateTime, string userId);
     }
 }
