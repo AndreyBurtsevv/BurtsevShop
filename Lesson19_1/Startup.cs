@@ -109,11 +109,6 @@ namespace Lesson19_1
 
             app.UseAuthorization();
 
-            //app.UseAuthorization();
-
-            //app.UseAuthentication();
- 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
